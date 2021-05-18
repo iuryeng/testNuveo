@@ -1,4 +1,6 @@
 from django.urls import path
+
+from . import views
 from .views import WorkflowViewSet
 
 
@@ -9,9 +11,11 @@ urlpatterns = [
         'post': 'create',
     })),
     path('workflow/<str:pk>', WorkflowViewSet.as_view({
-        'get': 'retrieve',
         'patch': 'partial_update',
-        'delete': 'destroy'
+    })),
+    path('workflow/consume/<str:pk>', WorkflowViewSet.as_view({
+        'get': 'workflow_consume',
     }))
+
 
 ]
