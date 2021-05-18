@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from workflow.models import Workflow
-from .inserted import publish
+from .inserted import publish, consuming
 from .serializers import WorkflowSerializer
 
 
@@ -22,7 +22,7 @@ class WorkflowViewSet(viewsets.ViewSet):
         serializer = WorkflowSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        publish()
+        consuming()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def partial_update(self, request, pk=None):  # api/workflow/{str:uuid}
@@ -38,13 +38,17 @@ class WorkflowViewSet(viewsets.ViewSet):
         workflow = Workflow.objects.get(UUID=pk)
         serializer = WorkflowSerializer(instance=workflow, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
+
         uuid = serializer.data["UUID"]
         status = serializer.data["status"]
         data = serializer.data["data"]
         steps = serializer.data["steps"]
 
+
         body = [uuid, status, data, steps]
         write = csv.writer(Response)
 
         write.writerow(body)
+
+        publish()
         return Response
