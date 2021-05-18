@@ -11,3 +11,8 @@ channel = connection.channel()
 
 def publish():
     channel.basic_publish(exchange='', routing_key='workflow', body="inserido na fila")
+    print(" [X] enviado para a fila")
+
+def consuming():
+    channel.basic_publish(exchange='', routing_key='workflow_csv', body="workflow consumido")
+    print(" [X] consumido")
