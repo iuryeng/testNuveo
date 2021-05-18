@@ -1,7 +1,11 @@
+import csv
 from _testcapi import raise_exception
 
+from django.http import HttpResponse, Http404
 from rest_framework import viewsets, status
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from workflow.models import Workflow
 from .inserted import publish
@@ -28,5 +32,19 @@ class WorkflowViewSet(viewsets.ViewSet):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def workflow_consome(self, request):
-        pass
+    def workflow_consume(self, request, pk):
+        Response = HttpResponse(content_type='text/csv')
+        Response['Content-Disposition'] = 'attachment; filename=workflow.csv'
+        workflow = Workflow.objects.get(UUID=pk)
+        serializer = WorkflowSerializer(instance=workflow, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        uuid = serializer.data["UUID"]
+        status = serializer.data["status"]
+        data = serializer.data["data"]
+        steps = serializer.data["steps"]
+
+        body = [uuid, status, data, steps]
+        write = csv.writer(Response)
+
+        write.writerow(body)
+        return Response
