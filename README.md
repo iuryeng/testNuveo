@@ -1,13 +1,32 @@
 #  REST API Workflow (Desafio Nuveo)
 
-Esta API foi construida como uma resolução do desafio de backend da Nuveo
-Você pode ver o desafio aqui: Backend Test - N1
-
 Esta API foi construida como uma resolução do desafio de backend da Nuveo <br />
 Você pode ver o desafio aqui: [Backend Test - N1](https://github.com/iuryeng/testNuveo/blob/main/Desafio%20N1%20-%20Integra%C3%A7%C3%A3o.pdf)<br />
 
 Abra seu terminal e clone minha resolução para um diretório de sua escolha com o comando: <br /> 
 `$ git clone https://github.com/iuryeng/testNuveo.git`
+
+
+                  
+## Defining a workflow
+
+|Name|Type|Description|
+|-|-|-|
+|UUID|UUID|workflow unique identifier|
+|status|Enum(inserted, consumed)|workflow status|
+|data|JSONB|workflow input|
+|steps|Array|name of workflow steps
+
+## Endpoints
+
+|Verb|URL|Description|
+|-|-|-|
+|POST|/workflow|insert a workflow on database and on queue and respond request with the inserted workflow|
+|PATCH|/workflow/{UUID}|update status from specific workflow|
+|GET|/workflow|list all workflows|
+|GET|/workflow/consume|consume a workflow from queue and generate a CSV file with workflow.Data|
+
+<br />
 
 ###  Tecnologias utilizadas
     1. Python: Django
@@ -29,7 +48,7 @@ Abra seu terminal e clone minha resolução para um diretório de sua escolha co
 
 
 
-## Instale a api em um ambiente virtual local
+## Rode a app em um ambiente virtual local
  
 ___1. Entre no diretório /testNuveo___
   
@@ -66,7 +85,7 @@ ___3. Contrua as tabelas de workflow no banco de dados___:
     
 >Acesse a API: http://localhost:8000/workflow      
                  
-## Instale a api no Docker
+## Rode a app no Docker
 
     
 ___1. Entre no diretório /testNuveo/apiworkflow/settings.py e defina o host da seguinte forma___ <br /> 
@@ -97,33 +116,27 @@ ___3. Contrua as tabelas de workflow no banco de dados___
 `# python3 manage.py migrate`
     
 >Acesse a API: http://localhost:8000/workflow
-                  
-## REST API - Defining a workflow
 
-|Name|Type|Description|
-|-|-|-|
-|UUID|UUID|workflow unique identifier|
-|status|Enum(inserted, consumed)|workflow status|
-|data|JSONB|workflow input|
-|steps|Array|name of workflow steps
+## Sistema de mensageria com rabbitMQ
 
-## Endpoints
+___1. Entre no diretório /testNuveo/consumer.py___
 
-|Verb|URL|Description|
-|-|-|-|
-|POST|/workflow|insert a workflow on database and on queue and respond request with the inserted workflow|
-|PATCH|/workflow/{UUID}|update status from specific workflow|
-|GET|/workflow|list all workflows|
-|GET|/workflow/consume|consume a workflow from queue and generate a CSV file with workflow.Data|
+Configure a url_parms com a url do seu AMQP URL: <br /> 
+    
+    url_params = pika.URLParameters('sua AMQP URL')
 
-<br />
+___2. Entre no diretório /testNuveo___
 
+>inicie o serviço de mensageria:<br />
+`$ python3 consumer.py`
+
+   
 ## Exemplos de Uso
 
 
 ## Crie um Workflow
 
-### Request
+## Request
 
 `POST /workflow/`
 
@@ -159,5 +172,3 @@ ___3. Contrua as tabelas de workflow no banco de dados___
     Content-Length: 2
 
     []
-
-
