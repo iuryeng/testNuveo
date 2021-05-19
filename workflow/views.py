@@ -22,6 +22,7 @@ class WorkflowViewSet(viewsets.ViewSet):
         serializer = WorkflowSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        serializer.save(status="inserted")
         consuming()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -38,6 +39,7 @@ class WorkflowViewSet(viewsets.ViewSet):
         workflow = Workflow.objects.get(UUID=pk)
         serializer = WorkflowSerializer(instance=workflow, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
+        serializer.save(status="consumed")
 
         uuid = serializer.data["UUID"]
         status = serializer.data["status"]
