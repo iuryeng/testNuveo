@@ -11,7 +11,7 @@ django.setup()
 
 from workflow.models import Workflow
 
-url_params = pika.URLParameters('amqps://aufinhks:PaQoo2lak0mHCXFb3fzEiHy7q7-N2Daq@baboon.rmq.cloudamqp.com/aufinhks')
+url_params = pika.URLParameters('you amqps')
 
 connection = pika.BlockingConnection(url_params)
 
