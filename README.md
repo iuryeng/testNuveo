@@ -8,23 +8,23 @@ Abra seu terminal e clone minha resolução para um diretório de sua escolha co
 
 
                   
-## Defining a workflow
+## Definindo um workflow
 
-|Name|Type|Description|
+|Nomw|Tipo|Descrição|
 |-|-|-|
-|UUID|UUID|workflow unique identifier|
-|status|Enum(inserted, consumed)|workflow status|
-|data|JSONB|workflow input|
-|steps|Array|name of workflow steps
+|UUID|UUID|Identificador único do workflow|
+|status|Enum(inserted, consumed)|Status do workflow|
+|data|JSONB|Entrada de dados do workflow|
+|steps|Array|Nome dos passos do workflow|
 
 ## Endpoints
 
-|Verb|URL|Description|
+|HTTP|URL|Descrição|
 |-|-|-|
-|POST|/workflow|insert a workflow on database and on queue and respond request with the inserted workflow|
-|PATCH|/workflow/{UUID}|update status from specific workflow|
-|GET|/workflow|list all workflows|
-|GET|/workflow/consume|consume a workflow from queue and generate a CSV file with workflow.Data|
+|POST|/workflow|Insira um workflow no banco de dados e na fila e a resposta desse endpoint é o próprio workflow enviado|
+|PATCH|/workflow/{UUID}|Atualizar o status de um workflow específico|
+|GET|/workflow|lista todos os workflows|
+|GET|/workflow/consume|Consume um workflow da fila e gera um CSV do workflow.Data|
 
 <br />
 
