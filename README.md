@@ -3,7 +3,7 @@
 Esta API foi construida como uma resolução do desafio de backend da Nuveo <br />
 Você pode ver o desafio aqui: [Backend Test - N1](https://github.com/iuryeng/testNuveo/blob/main/Desafio%20N1%20-%20Integra%C3%A7%C3%A3o.pdf)<br />
 
-Abra seu terminal e clone minha resolução para um diretório de sua escolha com o comando: <br /> 
+Abra o terminal e clone minha resolução para um diretório de sua escolha com o comando: <br /> 
 `$ git clone https://github.com/iuryeng/testNuveo.git`
 
 
