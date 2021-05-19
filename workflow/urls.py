@@ -1,9 +1,8 @@
+
 from django.urls import path
 
 from . import views
 from .views import WorkflowViewSet
-
-
 
 urlpatterns = [
     path('workflow', WorkflowViewSet.as_view({
@@ -15,7 +14,6 @@ urlpatterns = [
     })),
     path('workflow/consume/<str:pk>', WorkflowViewSet.as_view({
         'get': 'workflow_consume',
-    }))
+    })),
 
-
-]
+ ]
