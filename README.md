@@ -1,6 +1,13 @@
 #  REST API Workflow (Desafio Nuveo)
 
-Esta API foi construida durante a resolução do desafio de backend da Nuveo 
+Esta API foi construida como uma resolução do desafio de backend da Nuveo
+Você pode ver o desafio aqui: Backend Test - N1
+
+Esta API foi construida como uma resolução do desafio de backend da Nuveo <br />
+Você pode ver o desafio aqui: [Backend Test - N1](https://github.com/iuryeng/testNuveo/blob/main/Desafio%20N1%20-%20Integra%C3%A7%C3%A3o.pdf)<br />
+
+Abra seu terminal e clone minha resolução para um diretório de sua escolha com o comando: <br /> 
+`$ git clone https://github.com/iuryeng/testNuveo.git`
 
 ###  Tecnologias utilizadas
     1. Python: Django
