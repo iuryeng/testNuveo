@@ -127,7 +127,7 @@ Configure a url_parms com a url do seu AMQP URL: <br />
 
 ___2. Entre no diretório /testNuveo___
 
->inicie o serviço de mensageria:<br />
+>Inicie o serviço de mensageria:<br />
 `$ python3 consumer.py`
 
    
