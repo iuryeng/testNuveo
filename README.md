@@ -130,6 +130,9 @@ ___2. Entre no diretório /testNuveo___
 >Inicie o serviço de mensageria:<br />
 `$ python3 consumer.py`
 
+__.3 Iniciando o serviço em um container docker
+`$ sudo docker-compose exec backend python3 consume.py`
+
    
 ## Exemplos de Uso
 Se por algum acaso você tiver uma conta no postman, você pode acessar os exemplos de uso apertando nesse botão: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c7ffe1cd92832b3b40e1)
@@ -147,10 +150,20 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
 
 ## Request
 
-`POST /workflow/`
-
-    curl -d '{"data": {{"name": "workflow-1","work": "work-1",{"tag_work": "@tagwork-1",score": 100},{"steps":"step-1","step-2"]}'-H "Content-Type: application/json" -X POST http://localhost:8000/wrokflow
-
+`POST /workflow/`   
+    ´{        
+        "status": "inserted",
+        "data": {
+            "name": "workflow-1",
+            "work": "work-1",
+            "score": 100,
+            "tag_work": "@tagwork-1"
+        },
+        "steps": [
+            "step-1",
+            "step-2"
+        ]
+    }´
 ### Response
 
     HTTP/1.1 201 Created
@@ -161,7 +174,20 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
     Location: /thing/1
     Content-Length: 36
 
-    {"id":1,"name":"Foo","status":"new"}
+     ´{
+        "UUID": "9464ed37-8b24-41f1-ab79-52f91716cc62",
+        "status": "False",
+        "data": {
+            "name": "workflow-1",
+            "work": "work-1",
+            "score": 100,
+            "tag_work": "@tagwork-1"
+        },
+        "steps": [
+            "step-1",
+            "step-2"
+        ]
+    }´
 
 ## Liste todos os workflows
 
@@ -169,8 +195,8 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
 
 `GET /workflow/`
 
-    curl -i -H 'Accept: application/json' http://localhost:7000/thing/
-
+     
+     
 ### Response
 
     HTTP/1.1 200 OK
@@ -180,4 +206,52 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
     Content-Type: application/json
     Content-Length: 2
 
-    []
+     ´{
+        "UUID": "9464ed37-8b24-41f1-ab79-52f91716cc62",
+        "status": "False",
+        "data": {
+            "name": "workflow-1",
+            "work": "work-1",
+            "score": 100,
+            "tag_work": "@tagwork-1"
+        },
+        "steps": [
+            "step-1",
+            "step-2"
+        ]
+    }´
+
+
+## Corrija um workflow
+
+### Request
+
+`PATCH /workflow/{UUID}`
+
+´{ "status": "consumed"}´
+
+### Response
+
+    HTTP/1.1 200 OK
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+    Content-Length: 2
+    
+## Consumir workflow e gerar CSV
+
+### Request
+
+`GET /workflow/consume/{UUID}`
+
+  
+
+### Response
+
+    HTTP/1.1 200 OK
+    Date: Thu, 24 Feb 2011 12:36:30 GMT
+    Status: 200 OK
+    Connection: close
+    Content-Type: application/json
+    Content-Length: 2
