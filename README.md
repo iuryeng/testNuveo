@@ -140,7 +140,7 @@ Você também pode acessar direto no seu browser preferido: <br />
 3. com o método patch para corrigir workflows: http://localhost:8000/workflow/{UUID} <br />
 4. com o método get para consumir um workflows e gerar o csv: http://localhost:8000/workflow/{UUID} <br />
 
-Outra alternativa pode ser abrir o terminal e escrever os comandos listados abaixo para criar uma workflow, listar todos os workflows, corrigir um workflow e consumir workflow gerando CSV
+Outra alternativa pode ser abrir o terminal e escrever os comandos listados abaixo para criar uma workflow, listar todos os workflows, corrigir um workflow ou consumir workflow gerando CSV
 
 
 ## Crie um Workflow
