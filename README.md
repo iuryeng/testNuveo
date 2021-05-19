@@ -132,6 +132,15 @@ ___2. Entre no diretório /testNuveo___
 
    
 ## Exemplos de Uso
+Se por algum acaso você tiver uma conta no postman, você pode acessar os exemplos de uso apertando nesse botão: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c7ffe1cd92832b3b40e1)
+
+Caso não possua uma conta no postman, basta abrir o terminal e executar os comandos listados abaixo para criar, listar, corrigir ou consumir um csv
+
+Você também pode acessar direto no seu browser preferido: <br />
+1. com método get para listar todos os workflow: http://localhost:8000/workflow <br />
+2. com o método post para criar workflows: http://localhost:8000/workflow <br />
+3. com o método patch para corrigir workflows: http://localhost:8000/workflow/{UUID} <br />
+4. com o método get para consumir um workflows e gerar o csv: http://localhost:8000/workflow/{UUID} <br />
 
 
 ## Crie um Workflow
