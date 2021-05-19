@@ -29,7 +29,7 @@ Abra seu terminal e clone minha resolução para um diretório de sua escolha co
 
 
 
-## Rode a app em um ambiente virtual local
+## Instale a api em um ambiente virtual local
  
 ___1. Entre no diretório /testNuveo___
   
@@ -66,7 +66,7 @@ ___3. Contrua as tabelas de workflow no banco de dados___:
     
 >Acesse a API: http://localhost:8000/workflow      
                  
-## Rode a app no Docker
+## Instale a api no Docker
 
     
 ___1. Entre no diretório /testNuveo/apiworkflow/settings.py e defina o host da seguinte forma___ <br /> 
