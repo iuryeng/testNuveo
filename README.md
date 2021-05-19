@@ -54,8 +54,7 @@ ___1. Entre no diretório /testNuveo___
   
 >Crie uma virtual env: <br />`$ python3 -m venv venv`
         
->Instale as dependencias necessárias:<br /> `$ pip3 install -r requeriments.txt`
-        
+>Instale as dependencias necessárias:<br /> `$ pip3 install requeriments.txt´ 
 >Crie uma base de dados de workflow no postgres:<br />   
 
     
