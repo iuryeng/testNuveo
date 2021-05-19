@@ -85,7 +85,7 @@ ___3. Contrua as tabelas de workflow no banco de dados___:
     
 >Acesse a API: http://localhost:8000/workflow      
                  
-## Rode a app no Docker
+## Rode a app em um container do Docker
 
     
 ___1. Entre no diretório /testNuveo/apiworkflow/settings.py e defina o host da seguinte forma___ <br /> 
