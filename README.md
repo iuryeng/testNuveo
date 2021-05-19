@@ -151,7 +151,7 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
 ## Request
 
 `POST /workflow/`   
-    ´{        
+     {        
         "status": "inserted",
         "data": {
             "name": "workflow-1",
@@ -163,7 +163,7 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
             "step-1",
             "step-2"
         ]
-    }´
+    }
 ### Response
 
     HTTP/1.1 201 Created
@@ -228,7 +228,7 @@ Outra alternativa pode ser abrir o terminal e escrever os comandos listados abai
 
 `PATCH /workflow/{UUID}`
 
-´{ "status": "consumed"}´
+{ "status": "consumed"}
 
 ### Response
 
