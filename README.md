@@ -55,11 +55,8 @@ ___1. Entre no diretório /testNuveo___
 >Crie uma virtual env: <br />`$ python3 -m venv venv`
         
 >Instale as dependencias necessárias:<br /> `$ pip3 install -r requeriments.txt`
-
->Inicie o shell no postgres:<br /> `$ sudo -u postgres psql`
         
->Crie uma base de dados de workflow no postgres:<br />`$ createdb workflow`    
-
+>Crie uma base de dados de workflow no postgres:<br />   
 
     
 ___2. Entre no diretório /testNuveo/apiworkflow/settings.py e defina o host da seguinte forma___ <br /> 
