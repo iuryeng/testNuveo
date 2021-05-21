@@ -5,7 +5,7 @@ from . import views
 from .views import WorkflowViewSet
 
 urlpatterns = [
-    path('workflow', WorkflowViewSet.as_view({
+    path('workflow/', WorkflowViewSet.as_view({
         'get': 'list',
         'post': 'create',
     })),
