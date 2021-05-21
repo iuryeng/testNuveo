@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/iuryeng/testNuveo.svg?branch=main)](https://travis-ci.com/iuryeng/testNuveo)
+
 #  REST API Workflow (Desafio Nuveo)
 
 Esta API foi construida como uma resolução do desafio de backend da Nuveo <br />
