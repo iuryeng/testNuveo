@@ -4,7 +4,6 @@ from django.test import TestCase
 from workflow.models import Workflow
 
 
-
 class TestWorkflow(TestCase):
 
     def test_field_uuid(self):
@@ -16,11 +15,6 @@ class TestWorkflow(TestCase):
         unique = Workflow._meta.get_field('UUID').unique
         self.assertEquals(unique, True)
 
-
     def test_field_updated_at(self):
         field = Workflow._meta.get_field('data')
         self.assertTrue(isinstance(field, models.JSONField))
-
-
-
-
