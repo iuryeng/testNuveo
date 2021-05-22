@@ -14,3 +14,5 @@ class Workflow(models.Model):
     data = models.JSONField()
     steps = ArrayField(base_field=models.CharField(max_length=200, null=True), default=list, blank=True)
 
+    def __unicode__(self):
+        return self.status
