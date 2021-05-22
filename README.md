@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.com/iuryeng/testNuveo.svg?branch=main)](https://travis-ci.com/iuryeng/testNuveo)
 
-[![Coverage Status](https://coveralls.io/repos/github/iuryeng/testNuveo/badge.svg?branch=main)](https://coveralls.io/github/iuryeng/testNuveo?branch=main)
 
 #  REST API Workflow (Desafio Nuveo)
 
