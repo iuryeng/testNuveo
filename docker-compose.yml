@@ -11,11 +11,11 @@ services:
       - .:/app
     depends_on:
       - db
- queue:
+  qqueue:
     build:
       context: .
       dockerfile: Dockerfile
-    #command: 'python -u consumer.py'
+    command: 'python -u consumer.py'
     depends_on:
       - db
   db:
