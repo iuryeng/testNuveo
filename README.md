@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/iuryeng/testNuveo.svg?branch=main)](https://travis-ci.org/iuryeng/testNuveo)
 
 
 #  REST API Workflow (Desafio Nuveo)
